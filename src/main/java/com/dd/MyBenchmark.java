@@ -31,31 +31,39 @@
 
 package com.dd;
 
-import org.openjdk.jmh.annotations.Benchmark;
-import org.openjdk.jmh.annotations.BenchmarkMode;
-import org.openjdk.jmh.annotations.Mode;
-import org.openjdk.jmh.annotations.OutputTimeUnit;
+import org.openjdk.jmh.annotations.*;
 
 import java.util.concurrent.TimeUnit;
 
 public class MyBenchmark {
 
-    @Benchmark
-    @OutputTimeUnit(TimeUnit.NANOSECONDS)
-    @BenchmarkMode(Mode.AverageTime)
-    public static String concatNonFinalStrings() {
-        String x = "x";
-        String y = "y";
-        return x + y;
+    @State(Scope.Thread)
+    public static class MyState {
+        public String x = "x";
+        public String y = "y";
+    }
+
+    @State(Scope.Thread)
+    public static class MyFinalState {
+        public final String x = "x";
+        public final String y = "y";
     }
 
     @Benchmark
     @OutputTimeUnit(TimeUnit.NANOSECONDS)
     @BenchmarkMode(Mode.AverageTime)
-    public static String concatFinalStrings() {
-        final String x = "x";
-        final String y = "y";
-        return x + y;
+    public static String concatNonFinalStrings(MyState state) {
+
+        return state.x + state.y;
+    }
+
+    @Benchmark
+    @OutputTimeUnit(TimeUnit.NANOSECONDS)
+    @BenchmarkMode(Mode.AverageTime)
+    public static String concatFinalStrings(MyFinalState finalState) {
+
+        return finalState.x + finalState.y;
+
     }
 
 }

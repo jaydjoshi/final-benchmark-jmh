@@ -33,6 +33,7 @@ import org.openjdk.jmh.results.AggregationPolicy;
 import org.openjdk.jmh.runner.FailureAssistException;
 
 import com.dd.jmh_generated.MyBenchmark_jmhType;
+import com.dd.jmh_generated.MyBenchmark_MyFinalState_jmhType;
 public final class MyBenchmark_concatFinalStrings_jmhTest {
 
     byte p000, p001, p002, p003, p004, p005, p006, p007, p008, p009, p010, p011, p012, p013, p014, p015;
@@ -69,23 +70,24 @@ public final class MyBenchmark_concatFinalStrings_jmhTest {
         if (threadParams.getSubgroupIndex() == 0) {
             RawResults res = new RawResults();
             MyBenchmark_jmhType l_mybenchmark0_0 = _jmh_tryInit_f_mybenchmark0_0(control);
+            MyBenchmark_MyFinalState_jmhType l_myfinalstate1_1 = _jmh_tryInit_f_myfinalstate1_1(control);
 
             control.preSetup();
 
 
             control.announceWarmupReady();
             while (control.warmupShouldWait) {
-                blackhole.consume(l_mybenchmark0_0.concatFinalStrings());
+                blackhole.consume(l_mybenchmark0_0.concatFinalStrings(l_myfinalstate1_1));
                 res.allOps++;
             }
 
             notifyControl.startMeasurement = true;
-            concatFinalStrings_thrpt_jmhStub(control, res, benchmarkParams, iterationParams, threadParams, blackhole, notifyControl, startRndMask, l_mybenchmark0_0);
+            concatFinalStrings_thrpt_jmhStub(control, res, benchmarkParams, iterationParams, threadParams, blackhole, notifyControl, startRndMask, l_myfinalstate1_1, l_mybenchmark0_0);
             notifyControl.stopMeasurement = true;
             control.announceWarmdownReady();
             try {
                 while (control.warmdownShouldWait) {
-                    blackhole.consume(l_mybenchmark0_0.concatFinalStrings());
+                    blackhole.consume(l_mybenchmark0_0.concatFinalStrings(l_myfinalstate1_1));
                     res.allOps++;
                 }
             } catch (Throwable e) {
@@ -94,6 +96,7 @@ public final class MyBenchmark_concatFinalStrings_jmhTest {
             control.preTearDown();
 
             if (control.isLastIteration()) {
+                f_myfinalstate1_1 = null;
                 f_mybenchmark0_0 = null;
             }
             res.allOps += res.measuredOps;
@@ -111,12 +114,12 @@ public final class MyBenchmark_concatFinalStrings_jmhTest {
             throw new IllegalStateException("Harness failed to distribute threads among groups properly");
     }
 
-    public static void concatFinalStrings_thrpt_jmhStub(InfraControl control, RawResults result, BenchmarkParams benchmarkParams, IterationParams iterationParams, ThreadParams threadParams, Blackhole blackhole, Control notifyControl, int startRndMask, MyBenchmark_jmhType l_mybenchmark0_0) throws Throwable {
+    public static void concatFinalStrings_thrpt_jmhStub(InfraControl control, RawResults result, BenchmarkParams benchmarkParams, IterationParams iterationParams, ThreadParams threadParams, Blackhole blackhole, Control notifyControl, int startRndMask, MyBenchmark_MyFinalState_jmhType l_myfinalstate1_1, MyBenchmark_jmhType l_mybenchmark0_0) throws Throwable {
         long operations = 0;
         long realTime = 0;
         result.startTime = System.nanoTime();
         do {
-            blackhole.consume(l_mybenchmark0_0.concatFinalStrings());
+            blackhole.consume(l_mybenchmark0_0.concatFinalStrings(l_myfinalstate1_1));
             operations++;
         } while(!control.isDone);
         result.stopTime = System.nanoTime();
@@ -136,23 +139,24 @@ public final class MyBenchmark_concatFinalStrings_jmhTest {
         if (threadParams.getSubgroupIndex() == 0) {
             RawResults res = new RawResults();
             MyBenchmark_jmhType l_mybenchmark0_0 = _jmh_tryInit_f_mybenchmark0_0(control);
+            MyBenchmark_MyFinalState_jmhType l_myfinalstate1_1 = _jmh_tryInit_f_myfinalstate1_1(control);
 
             control.preSetup();
 
 
             control.announceWarmupReady();
             while (control.warmupShouldWait) {
-                blackhole.consume(l_mybenchmark0_0.concatFinalStrings());
+                blackhole.consume(l_mybenchmark0_0.concatFinalStrings(l_myfinalstate1_1));
                 res.allOps++;
             }
 
             notifyControl.startMeasurement = true;
-            concatFinalStrings_avgt_jmhStub(control, res, benchmarkParams, iterationParams, threadParams, blackhole, notifyControl, startRndMask, l_mybenchmark0_0);
+            concatFinalStrings_avgt_jmhStub(control, res, benchmarkParams, iterationParams, threadParams, blackhole, notifyControl, startRndMask, l_myfinalstate1_1, l_mybenchmark0_0);
             notifyControl.stopMeasurement = true;
             control.announceWarmdownReady();
             try {
                 while (control.warmdownShouldWait) {
-                    blackhole.consume(l_mybenchmark0_0.concatFinalStrings());
+                    blackhole.consume(l_mybenchmark0_0.concatFinalStrings(l_myfinalstate1_1));
                     res.allOps++;
                 }
             } catch (Throwable e) {
@@ -161,6 +165,7 @@ public final class MyBenchmark_concatFinalStrings_jmhTest {
             control.preTearDown();
 
             if (control.isLastIteration()) {
+                f_myfinalstate1_1 = null;
                 f_mybenchmark0_0 = null;
             }
             res.allOps += res.measuredOps;
@@ -178,12 +183,12 @@ public final class MyBenchmark_concatFinalStrings_jmhTest {
             throw new IllegalStateException("Harness failed to distribute threads among groups properly");
     }
 
-    public static void concatFinalStrings_avgt_jmhStub(InfraControl control, RawResults result, BenchmarkParams benchmarkParams, IterationParams iterationParams, ThreadParams threadParams, Blackhole blackhole, Control notifyControl, int startRndMask, MyBenchmark_jmhType l_mybenchmark0_0) throws Throwable {
+    public static void concatFinalStrings_avgt_jmhStub(InfraControl control, RawResults result, BenchmarkParams benchmarkParams, IterationParams iterationParams, ThreadParams threadParams, Blackhole blackhole, Control notifyControl, int startRndMask, MyBenchmark_MyFinalState_jmhType l_myfinalstate1_1, MyBenchmark_jmhType l_mybenchmark0_0) throws Throwable {
         long operations = 0;
         long realTime = 0;
         result.startTime = System.nanoTime();
         do {
-            blackhole.consume(l_mybenchmark0_0.concatFinalStrings());
+            blackhole.consume(l_mybenchmark0_0.concatFinalStrings(l_myfinalstate1_1));
             operations++;
         } while(!control.isDone);
         result.stopTime = System.nanoTime();
@@ -203,13 +208,14 @@ public final class MyBenchmark_concatFinalStrings_jmhTest {
         if (threadParams.getSubgroupIndex() == 0) {
             RawResults res = new RawResults();
             MyBenchmark_jmhType l_mybenchmark0_0 = _jmh_tryInit_f_mybenchmark0_0(control);
+            MyBenchmark_MyFinalState_jmhType l_myfinalstate1_1 = _jmh_tryInit_f_myfinalstate1_1(control);
 
             control.preSetup();
 
 
             control.announceWarmupReady();
             while (control.warmupShouldWait) {
-                blackhole.consume(l_mybenchmark0_0.concatFinalStrings());
+                blackhole.consume(l_mybenchmark0_0.concatFinalStrings(l_myfinalstate1_1));
                 res.allOps++;
             }
 
@@ -218,12 +224,12 @@ public final class MyBenchmark_concatFinalStrings_jmhTest {
             int batchSize = iterationParams.getBatchSize();
             int opsPerInv = benchmarkParams.getOpsPerInvocation();
             SampleBuffer buffer = new SampleBuffer();
-            concatFinalStrings_sample_jmhStub(control, res, benchmarkParams, iterationParams, threadParams, blackhole, notifyControl, startRndMask, buffer, targetSamples, opsPerInv, batchSize, l_mybenchmark0_0);
+            concatFinalStrings_sample_jmhStub(control, res, benchmarkParams, iterationParams, threadParams, blackhole, notifyControl, startRndMask, buffer, targetSamples, opsPerInv, batchSize, l_myfinalstate1_1, l_mybenchmark0_0);
             notifyControl.stopMeasurement = true;
             control.announceWarmdownReady();
             try {
                 while (control.warmdownShouldWait) {
-                    blackhole.consume(l_mybenchmark0_0.concatFinalStrings());
+                    blackhole.consume(l_mybenchmark0_0.concatFinalStrings(l_myfinalstate1_1));
                     res.allOps++;
                 }
             } catch (Throwable e) {
@@ -232,6 +238,7 @@ public final class MyBenchmark_concatFinalStrings_jmhTest {
             control.preTearDown();
 
             if (control.isLastIteration()) {
+                f_myfinalstate1_1 = null;
                 f_mybenchmark0_0 = null;
             }
             res.allOps += res.measuredOps * batchSize;
@@ -246,7 +253,7 @@ public final class MyBenchmark_concatFinalStrings_jmhTest {
             throw new IllegalStateException("Harness failed to distribute threads among groups properly");
     }
 
-    public static void concatFinalStrings_sample_jmhStub(InfraControl control, RawResults result, BenchmarkParams benchmarkParams, IterationParams iterationParams, ThreadParams threadParams, Blackhole blackhole, Control notifyControl, int startRndMask, SampleBuffer buffer, int targetSamples, long opsPerInv, int batchSize, MyBenchmark_jmhType l_mybenchmark0_0) throws Throwable {
+    public static void concatFinalStrings_sample_jmhStub(InfraControl control, RawResults result, BenchmarkParams benchmarkParams, IterationParams iterationParams, ThreadParams threadParams, Blackhole blackhole, Control notifyControl, int startRndMask, SampleBuffer buffer, int targetSamples, long opsPerInv, int batchSize, MyBenchmark_MyFinalState_jmhType l_myfinalstate1_1, MyBenchmark_jmhType l_mybenchmark0_0) throws Throwable {
         long realTime = 0;
         long operations = 0;
         int rnd = (int)System.nanoTime();
@@ -261,7 +268,7 @@ public final class MyBenchmark_concatFinalStrings_jmhTest {
             }
             for (int b = 0; b < batchSize; b++) {
                 if (control.volatileSpoiler) return;
-                blackhole.consume(l_mybenchmark0_0.concatFinalStrings());
+                blackhole.consume(l_mybenchmark0_0.concatFinalStrings(l_myfinalstate1_1));
             }
             if (sample) {
                 buffer.add((System.nanoTime() - time) / opsPerInv);
@@ -289,6 +296,7 @@ public final class MyBenchmark_concatFinalStrings_jmhTest {
         }
         if (threadParams.getSubgroupIndex() == 0) {
             MyBenchmark_jmhType l_mybenchmark0_0 = _jmh_tryInit_f_mybenchmark0_0(control);
+            MyBenchmark_MyFinalState_jmhType l_myfinalstate1_1 = _jmh_tryInit_f_myfinalstate1_1(control);
 
             control.preSetup();
 
@@ -296,10 +304,11 @@ public final class MyBenchmark_concatFinalStrings_jmhTest {
             notifyControl.startMeasurement = true;
             RawResults res = new RawResults();
             int batchSize = iterationParams.getBatchSize();
-            concatFinalStrings_ss_jmhStub(control, res, benchmarkParams, iterationParams, threadParams, blackhole, notifyControl, startRndMask, batchSize, l_mybenchmark0_0);
+            concatFinalStrings_ss_jmhStub(control, res, benchmarkParams, iterationParams, threadParams, blackhole, notifyControl, startRndMask, batchSize, l_myfinalstate1_1, l_mybenchmark0_0);
             control.preTearDown();
 
             if (control.isLastIteration()) {
+                f_myfinalstate1_1 = null;
                 f_mybenchmark0_0 = null;
             }
             int opsPerInv = control.benchmarkParams.getOpsPerInvocation();
@@ -312,12 +321,12 @@ public final class MyBenchmark_concatFinalStrings_jmhTest {
             throw new IllegalStateException("Harness failed to distribute threads among groups properly");
     }
 
-    public static void concatFinalStrings_ss_jmhStub(InfraControl control, RawResults result, BenchmarkParams benchmarkParams, IterationParams iterationParams, ThreadParams threadParams, Blackhole blackhole, Control notifyControl, int startRndMask, int batchSize, MyBenchmark_jmhType l_mybenchmark0_0) throws Throwable {
+    public static void concatFinalStrings_ss_jmhStub(InfraControl control, RawResults result, BenchmarkParams benchmarkParams, IterationParams iterationParams, ThreadParams threadParams, Blackhole blackhole, Control notifyControl, int startRndMask, int batchSize, MyBenchmark_MyFinalState_jmhType l_myfinalstate1_1, MyBenchmark_jmhType l_mybenchmark0_0) throws Throwable {
         long realTime = 0;
         result.startTime = System.nanoTime();
         for (int b = 0; b < batchSize; b++) {
             if (control.volatileSpoiler) return;
-            blackhole.consume(l_mybenchmark0_0.concatFinalStrings());
+            blackhole.consume(l_mybenchmark0_0.concatFinalStrings(l_myfinalstate1_1));
         }
         result.stopTime = System.nanoTime();
         result.realTime = realTime;
@@ -332,6 +341,18 @@ public final class MyBenchmark_concatFinalStrings_jmhTest {
         if (val == null) {
             val = new MyBenchmark_jmhType();
             f_mybenchmark0_0 = val;
+        }
+        return val;
+    }
+    
+    MyBenchmark_MyFinalState_jmhType f_myfinalstate1_1;
+    
+    MyBenchmark_MyFinalState_jmhType _jmh_tryInit_f_myfinalstate1_1(InfraControl control) throws Throwable {
+        if (control.isFailing) throw new FailureAssistException();
+        MyBenchmark_MyFinalState_jmhType val = f_myfinalstate1_1;
+        if (val == null) {
+            val = new MyBenchmark_MyFinalState_jmhType();
+            f_myfinalstate1_1 = val;
         }
         return val;
     }
