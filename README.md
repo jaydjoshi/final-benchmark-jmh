@@ -210,3 +210,193 @@ Benchmark                          Mode  Cnt  Score   Error  Units
 MyBenchmark.concatFinalStrings     avgt   25  0.581 ± 0.045  ns/op
 MyBenchmark.concatNonFinalStrings  avgt   25  6.950 ± 0.100  ns/op
 ```
+
+## After adding state to rule of possibility of constant folding
+
+```
+# JMH version: 1.35
+# VM version: JDK 17, Java HotSpot(TM) 64-Bit Server VM, 17+35-LTS-2724
+# VM invoker: /Library/Java/JavaVirtualMachines/jdk-17.jdk/Contents/Home/bin/java
+# VM options: <none>
+# Blackhole mode: compiler (auto-detected, use -Djmh.blackhole.autoDetect=false to disable)
+# Warmup: 5 iterations, 10 s each
+# Measurement: 5 iterations, 10 s each
+# Timeout: 10 min per iteration
+# Threads: 1 thread, will synchronize iterations
+# Benchmark mode: Average time, time/op
+# Benchmark: com.dd.MyBenchmark.concatFinalStrings
+
+# Run progress: 0.00% complete, ETA 00:16:40
+# Fork: 1 of 5
+# Warmup Iteration   1: 13.757 ns/op
+# Warmup Iteration   2: 12.562 ns/op
+# Warmup Iteration   3: 6.923 ns/op
+# Warmup Iteration   4: 6.974 ns/op
+# Warmup Iteration   5: 6.857 ns/op
+Iteration   1: 6.818 ns/op
+Iteration   2: 6.825 ns/op
+Iteration   3: 6.793 ns/op
+Iteration   4: 6.808 ns/op
+Iteration   5: 6.826 ns/op
+
+# Run progress: 10.00% complete, ETA 00:15:04
+# Fork: 2 of 5
+# Warmup Iteration   1: 13.266 ns/op
+# Warmup Iteration   2: 12.750 ns/op
+# Warmup Iteration   3: 7.564 ns/op
+# Warmup Iteration   4: 7.359 ns/op
+# Warmup Iteration   5: 7.104 ns/op
+Iteration   1: 7.299 ns/op
+Iteration   2: 7.301 ns/op
+Iteration   3: 7.291 ns/op
+Iteration   4: 7.249 ns/op
+Iteration   5: 7.128 ns/op
+
+# Run progress: 20.00% complete, ETA 00:13:25
+# Fork: 3 of 5
+# Warmup Iteration   1: 13.254 ns/op
+# Warmup Iteration   2: 13.034 ns/op
+# Warmup Iteration   3: 7.668 ns/op
+# Warmup Iteration   4: 7.570 ns/op
+# Warmup Iteration   5: 7.080 ns/op
+Iteration   1: 6.995 ns/op
+Iteration   2: 7.138 ns/op
+Iteration   3: 7.776 ns/op
+Iteration   4: 6.824 ns/op
+Iteration   5: 7.027 ns/op
+
+# Run progress: 30.00% complete, ETA 00:11:44
+# Fork: 4 of 5
+# Warmup Iteration   1: 13.191 ns/op
+# Warmup Iteration   2: 12.802 ns/op
+# Warmup Iteration   3: 6.939 ns/op
+# Warmup Iteration   4: 6.933 ns/op
+# Warmup Iteration   5: 6.888 ns/op
+Iteration   1: 6.984 ns/op
+Iteration   2: 6.869 ns/op
+Iteration   3: 6.805 ns/op
+Iteration   4: 6.798 ns/op
+Iteration   5: 6.806 ns/op
+
+# Run progress: 40.00% complete, ETA 00:10:03
+# Fork: 5 of 5
+# Warmup Iteration   1: 13.020 ns/op
+# Warmup Iteration   2: 13.275 ns/op
+# Warmup Iteration   3: 6.880 ns/op
+# Warmup Iteration   4: 6.844 ns/op
+# Warmup Iteration   5: 6.838 ns/op
+Iteration   1: 6.824 ns/op
+Iteration   2: 6.790 ns/op
+Iteration   3: 6.809 ns/op
+Iteration   4: 6.840 ns/op
+Iteration   5: 6.858 ns/op
+
+
+Result "com.dd.MyBenchmark.concatFinalStrings":
+  6.979 ±(99.9%) 0.184 ns/op [Average]
+  (min, avg, max) = (6.790, 6.979, 7.776), stdev = 0.246
+  CI (99.9%): [6.795, 7.163] (assumes normal distribution)
+
+
+# JMH version: 1.35
+# VM version: JDK 17, Java HotSpot(TM) 64-Bit Server VM, 17+35-LTS-2724
+# VM invoker: /Library/Java/JavaVirtualMachines/jdk-17.jdk/Contents/Home/bin/java
+# VM options: <none>
+# Blackhole mode: compiler (auto-detected, use -Djmh.blackhole.autoDetect=false to disable)
+# Warmup: 5 iterations, 10 s each
+# Measurement: 5 iterations, 10 s each
+# Timeout: 10 min per iteration
+# Threads: 1 thread, will synchronize iterations
+# Benchmark mode: Average time, time/op
+# Benchmark: com.dd.MyBenchmark.concatNonFinalStrings
+
+# Run progress: 50.00% complete, ETA 00:08:23
+# Fork: 1 of 5
+# Warmup Iteration   1: 20.952 ns/op
+# Warmup Iteration   2: 19.828 ns/op
+# Warmup Iteration   3: 19.816 ns/op
+# Warmup Iteration   4: 19.768 ns/op
+# Warmup Iteration   5: 19.823 ns/op
+Iteration   1: 19.748 ns/op
+Iteration   2: 19.845 ns/op
+Iteration   3: 19.862 ns/op
+Iteration   4: 19.923 ns/op
+Iteration   5: 20.008 ns/op
+
+# Run progress: 60.00% complete, ETA 00:06:42
+# Fork: 2 of 5
+# Warmup Iteration   1: 21.174 ns/op
+# Warmup Iteration   2: 19.875 ns/op
+# Warmup Iteration   3: 20.291 ns/op
+# Warmup Iteration   4: 19.920 ns/op
+# Warmup Iteration   5: 20.815 ns/op
+Iteration   1: 19.874 ns/op
+Iteration   2: 20.123 ns/op
+Iteration   3: 20.056 ns/op
+Iteration   4: 20.168 ns/op
+Iteration   5: 19.847 ns/op
+
+# Run progress: 70.00% complete, ETA 00:05:01
+# Fork: 3 of 5
+# Warmup Iteration   1: 21.563 ns/op
+# Warmup Iteration   2: 20.077 ns/op
+# Warmup Iteration   3: 19.893 ns/op
+# Warmup Iteration   4: 19.927 ns/op
+# Warmup Iteration   5: 19.881 ns/op
+Iteration   1: 19.902 ns/op
+Iteration   2: 19.900 ns/op
+Iteration   3: 20.056 ns/op
+Iteration   4: 19.931 ns/op
+Iteration   5: 19.893 ns/op
+
+# Run progress: 80.00% complete, ETA 00:03:21
+# Fork: 4 of 5
+# Warmup Iteration   1: 21.039 ns/op
+# Warmup Iteration   2: 20.160 ns/op
+# Warmup Iteration   3: 19.889 ns/op
+# Warmup Iteration   4: 20.018 ns/op
+# Warmup Iteration   5: 20.101 ns/op
+Iteration   1: 20.161 ns/op
+Iteration   2: 19.915 ns/op
+Iteration   3: 19.922 ns/op
+Iteration   4: 19.911 ns/op
+Iteration   5: 20.021 ns/op
+
+# Run progress: 90.00% complete, ETA 00:01:40
+# Fork: 5 of 5
+# Warmup Iteration   1: 21.053 ns/op
+# Warmup Iteration   2: 19.942 ns/op
+# Warmup Iteration   3: 19.983 ns/op
+# Warmup Iteration   4: 19.930 ns/op
+# Warmup Iteration   5: 20.366 ns/op
+Iteration   1: 19.881 ns/op
+Iteration   2: 20.070 ns/op
+Iteration   3: 19.905 ns/op
+Iteration   4: 19.859 ns/op
+Iteration   5: 19.835 ns/op
+
+
+Result "com.dd.MyBenchmark.concatNonFinalStrings":
+  19.945 ±(99.9%) 0.081 ns/op [Average]
+  (min, avg, max) = (19.748, 19.945, 20.168), stdev = 0.109
+  CI (99.9%): [19.863, 20.026] (assumes normal distribution)
+
+
+# Run complete. Total time: 00:16:45
+
+REMEMBER: The numbers below are just data. To gain reusable insights, you need to follow up on
+why the numbers are the way they are. Use profilers (see -prof, -lprof), design factorial
+experiments, perform baseline and negative tests that provide experimental control, make sure
+the benchmarking environment is safe on JVM/OS/HW level, ask for reviews from the domain experts.
+Do not assume the numbers tell you what you want them to tell.
+
+NOTE: Current JVM experimentally supports Compiler Blackholes, and they are in use. Please exercise
+extra caution when trusting the results, look into the generated code to check the benchmark still
+works, and factor in a small probability of new VM bugs. Additionally, while comparisons between
+different JVMs are already problematic, the performance difference caused by different Blackhole
+modes can be very significant. Please make sure you use the consistent Blackhole mode for comparisons.
+
+Benchmark                          Mode  Cnt   Score   Error  Units
+MyBenchmark.concatFinalStrings     avgt   25   6.979 ± 0.184  ns/op
+MyBenchmark.concatNonFinalStrings  avgt   25  19.945 ± 0.081  ns/op
+```
