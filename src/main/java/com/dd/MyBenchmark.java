@@ -52,9 +52,9 @@ public class MyBenchmark {
     @Benchmark
     @OutputTimeUnit(TimeUnit.NANOSECONDS)
     @BenchmarkMode(Mode.AverageTime)
-    public static String concatNonFinalStrings(MyState state) {
+    public static String concatNonFinalStringsUsingIntern(MyState state) {
 
-        return state.x + state.y;
+        return state.x.intern() + state.y.intern();
     }
 
     @Benchmark

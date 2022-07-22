@@ -7,10 +7,10 @@ com/dd/jmh_generated/MyBenchmark_MyState_jmhType.class
 com/dd/jmh_generated/MyBenchmark_jmhType_B3.class
 com/dd/jmh_generated/MyBenchmark_MyFinalState_jmhType_B2.class
 com/dd/jmh_generated/MyBenchmark_MyState_jmhType_B2.class
+com/dd/jmh_generated/MyBenchmark_concatNonFinalStringsUsingIntern_jmhTest.class
 com/dd/jmh_generated/MyBenchmark_MyFinalState_jmhType.class
 com/dd/MyBenchmark$MyState.class
 META-INF/BenchmarkList
-com/dd/jmh_generated/MyBenchmark_concatNonFinalStrings_jmhTest.class
 com/dd/MyBenchmark.class
 com/dd/jmh_generated/MyBenchmark_MyState_jmhType_B1.class
 com/dd/jmh_generated/MyBenchmark_MyFinalState_jmhType_B1.class

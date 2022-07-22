@@ -4,4 +4,4 @@ dontinline,*.*_sample_jmhStub
 dontinline,*.*_ss_jmhStub
 dontinline,*.*_thrpt_jmhStub
 inline,com/dd/MyBenchmark.concatFinalStrings
-inline,com/dd/MyBenchmark.concatNonFinalStrings
+inline,com/dd/MyBenchmark.concatNonFinalStringsUsingIntern

@@ -1,2 +1,2 @@
 JMH S 18 com.dd.MyBenchmark S 59 com.dd.jmh_generated.MyBenchmark_concatFinalStrings_jmhTest S 18 concatFinalStrings S 11 AverageTime E A 1 1 1 E E E E E E E E E E E E E E U 11 NANOSECONDS E E 
-JMH S 18 com.dd.MyBenchmark S 62 com.dd.jmh_generated.MyBenchmark_concatNonFinalStrings_jmhTest S 21 concatNonFinalStrings S 11 AverageTime E A 1 1 1 E E E E E E E E E E E E E E U 11 NANOSECONDS E E 
+JMH S 18 com.dd.MyBenchmark S 73 com.dd.jmh_generated.MyBenchmark_concatNonFinalStringsUsingIntern_jmhTest S 32 concatNonFinalStringsUsingIntern S 11 AverageTime E A 1 1 1 E E E E E E E E E E E E E E U 11 NANOSECONDS E E 
