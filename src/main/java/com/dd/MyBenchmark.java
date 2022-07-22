@@ -33,37 +33,117 @@ package com.dd;
 
 import org.openjdk.jmh.annotations.*;
 
+import java.util.ArrayList;
+import java.util.List;
+import java.util.UUID;
 import java.util.concurrent.TimeUnit;
 
 public class MyBenchmark {
 
     @State(Scope.Thread)
-    public static class MyState {
-        public String x = "x";
-        public String y = "y";
+    public static class MyUser {
+        public User user = Util.createUser();
     }
 
     @State(Scope.Thread)
-    public static class MyFinalState {
-        public final String x = "x";
-        public final String y = "y";
+    public static class MyFinalUser {
+        public final User user = Util.createUser();
     }
 
     @Benchmark
     @OutputTimeUnit(TimeUnit.NANOSECONDS)
     @BenchmarkMode(Mode.AverageTime)
-    public static String concatNonFinalStrings(MyState state) {
+    public static List<Address> userWithNonFinalVariables(MyUser myUser) {
 
-        return state.x + state.y;
+        Address address = myUser.user.getAddress();
+        List<Address> listResult = new ArrayList();
+        listResult.add(address);
+        return listResult;
     }
 
     @Benchmark
     @OutputTimeUnit(TimeUnit.NANOSECONDS)
     @BenchmarkMode(Mode.AverageTime)
-    public static String concatFinalStrings(MyFinalState finalState) {
+    public static List<Address> userWithFinalVariables(MyFinalUser myFinalUser) {
 
-        return finalState.x + finalState.y;
+        Address address = myFinalUser.user.getAddress();
+        final List<Address> listResult = new ArrayList();
+        listResult.add(address);
+        return listResult;
 
     }
 
+}
+
+class User{
+    private Address address;
+
+    public Address getAddress() {
+        return address;
+    }
+
+    public void setAddress(Address address) {
+        this.address = address;
+    }
+
+}
+
+class Address{
+
+    private String addressLine1;
+    private String addressLine2;
+    private String addressLine3;
+    private String addressLine4;
+
+    public String getAddressLine1() {
+        return addressLine1;
+    }
+
+    public void setAddressLine1(String addressLine1) {
+        this.addressLine1 = addressLine1;
+    }
+
+    public String getAddressLine2() {
+        return addressLine2;
+    }
+
+    public void setAddressLine2(String addressLine2) {
+        this.addressLine2 = addressLine2;
+    }
+
+    public String getAddressLine3() {
+        return addressLine3;
+    }
+
+    public void setAddressLine3(String addressLine3) {
+        this.addressLine3 = addressLine3;
+    }
+
+    public String getAddressLine4() {
+        return addressLine4;
+    }
+
+    public void setAddressLine4(String addressLine4) {
+        this.addressLine4 = addressLine4;
+    }
+
+}
+
+class Util{
+
+    public static User createUser(){
+        User user = new User();
+        user.setAddress(createAddress());
+        return user;
+    }
+
+    public static Address createAddress(){
+        Address address = new Address();
+        address.setAddressLine1(UUID.randomUUID().toString());
+        address.setAddressLine2(UUID.randomUUID().toString());
+        address.setAddressLine3(UUID.randomUUID().toString());
+        address.setAddressLine4(UUID.randomUUID().toString());
+
+        return address;
+    }
 }
